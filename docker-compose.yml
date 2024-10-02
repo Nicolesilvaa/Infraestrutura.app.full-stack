@@ -1,0 +1,39 @@
+services:
+
+  web:
+
+    build: ./frontend
+    ports:
+      - "80:80"
+    networks:
+      - idade-network
+    depends_on:
+      - backend
+
+  backend:
+
+    build: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - idade-network
+    depends_on:
+      - db
+
+  db:
+
+    image: mysql:8.0
+    environment:
+      - DB_HOST=value
+      - DB_USER=value
+      - DB_NAME=value
+    volumes:
+      - db-data-idade:/var/lib/mysql
+    networks:
+      - idade-network
+  
+volumes:
+  db-data-idade:
+
+networks:
+  idade-network:
