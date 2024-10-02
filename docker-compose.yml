@@ -13,6 +13,13 @@ services:
   backend:
 
     build: ./backend
+    environment:
+      DB_HOST: db
+      DB_USER: user
+      DB_NAME: db-idade-app-py
+    secrets:
+      - mysql_root_password
+      - mysql_password
     ports:
       - "5000:5000"
     networks:
@@ -24,9 +31,13 @@ services:
 
     image: mysql:8.0
     environment:
-      - DB_HOST=value
-      - DB_USER=value
-      - DB_NAME=value
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_DATABASE: db-idade-app-py
+      MYSQL_USER: user
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
+    secrets:
+      - mysql_root_password
+      - mysql_password
     volumes:
       - db-data-idade:/var/lib/mysql
     networks:
@@ -38,3 +49,10 @@ volumes:
 networks:
   idade-network:
     driver: bridge
+
+
+secrets:
+  mysql_root_password:
+    file: ./secrets/mysql_root_password.txt
+  mysql_password:
+    file: ./secrets/mysql_password.txt
