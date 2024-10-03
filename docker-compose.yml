@@ -1,6 +1,6 @@
 services:
 
-  web:
+  frontend:
 
     build: ./frontend
     ports:
@@ -32,9 +32,9 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
       MYSQL_DATABASE: db-idade-app-py
       MYSQL_USER: user
-      MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
     secrets:
       - mysql_root_password
       - mysql_password
@@ -50,9 +50,9 @@ networks:
   idade-network:
     driver: bridge
 
-
 secrets:
   mysql_root_password:
     file: ./secrets/mysql_root_password.txt
+
   mysql_password:
     file: ./secrets/mysql_password.txt

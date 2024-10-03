@@ -15,7 +15,7 @@ RUN chmod +x /wait-for-it.sh
 EXPOSE 5000
 
 # A porta 3306 é definida por padrão para bancos de dados MYSQL
-CMD ["/wait-for-it.sh", "db:3306", "--timeout=60", "---","python","app.py"]
+CMD ["/wait-for-it.sh", "db:3306", "--timeout=60", "--","python","app.py"]
 
 # "/wait-for-it.sh": Script usado para aguardar a disponibilidade de outro serviço (neste caso, o banco de dados MySQL).
 # "db:3306": Especifica o host  e a porta onde o banco de dados MySQL está rodando. 
