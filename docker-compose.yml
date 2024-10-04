@@ -8,7 +8,7 @@ services:
     networks:
       - idade-network
     depends_on:
-      - backend
+      - backend # Garante que o Nginx inicie depois que o back esteja disponível, apenas para seguir uma ordem
 
   backend:
 
