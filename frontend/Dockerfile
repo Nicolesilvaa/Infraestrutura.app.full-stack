@@ -1,7 +1,5 @@
 FROM nginx
 
-WORKDIR /app/frontend
-
 COPY ./ /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/nginx.conf 

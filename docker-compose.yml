@@ -38,6 +38,8 @@ services:
     secrets:
       - mysql_root_password
       - mysql_password
+    ports:
+      - "3306:3306"
     volumes:
       - db-data-idade:/var/lib/mysql
     networks:
