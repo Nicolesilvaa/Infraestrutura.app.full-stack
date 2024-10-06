@@ -15,8 +15,13 @@ A aplicação foi desenvolvida utilizando a seguinte stack de tecnologias:
 
 - **Docker:** Toda a infraestrutura será containerizada utilizando Docker, garantindo que todos os componentes da aplicação sejam isolados e reproduzíveis em qualquer ambiente.
 
+## Aplicação :  💻:
+
+https://github.com/user-attachments/assets/8623e9af-7ed6-4021-8752-6686b7d6d70d
 
 **Autoria da aplicação:** [Felipe Raulino](https://www.linkedin.com/in/filipe-raulino-5523aa4b/) 
 
 **Autoria da infraestrutura:** Nicole Silva
+
+
 
