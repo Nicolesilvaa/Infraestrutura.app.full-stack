@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>CRUD de Usuários</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>CRUD de Usuários</h1>
 
@@ -48,5 +50,98 @@
     </div>
 
     <script src="main.js"></script>
+
+
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f9f9f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1, h2 {
+        color: #444;
+    }
+
+    #createFormContainer, #editFormContainer {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    form input[type="text"],
+    form input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    button[type="button"] {
+        background-color: #f44336;
+    }
+
+    button[type="button"]:hover {
+        background-color: #e53935;
+    }
+
+    #usersTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    #usersTable th, #usersTable td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+
+    #usersTable th {
+        background-color: #f2f2f2;
+        color:#45a049;
+    };
+    
+    #usersTable tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    #usersTable tr:hover {
+        background-color: #f1f1f1;
+    }
+
+
+
+    </style>
 </body>
 </html>
