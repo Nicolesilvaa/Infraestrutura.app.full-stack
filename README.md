@@ -1,7 +1,7 @@
 # Infraestrutura app full-stack 🚀
 
 ## Objetivo: ⛓️
-  configurar e subir uma infraestrutura completa de uma aplicação web full-stack utilizando Docker. A aplicação é composta por um backend em Python/Flask que se comunica com um banco de dados MySQL, e um frontend que será servido pelo Nginx.
+Configurar e subir uma infraestrutura completa de uma aplicação web full-stack utilizando Docker. A aplicação é composta por um backend em Python/Flask que se comunica com um banco de dados MySQL, e um frontend.
 
 ## Descrição do Cenário: 🐙
 
