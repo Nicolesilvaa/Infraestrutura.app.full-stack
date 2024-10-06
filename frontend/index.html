@@ -24,8 +24,10 @@
         <h2>Editar Usuário</h2>
         <form id="editUserForm">
             <input type="hidden" id="editUserId">
-            <label>Nome: <input type="text" id="editName" required></label><br>
-            <label>Idade: <input type="number" id="editAge" required></label><br>
+            <label>Nome: <input type="text" id="editName" required></label>
+            <br>
+            <label>Idade: <input type="number" id="editAge" required></label>
+            <br>
             <button type="submit">Salvar Alterações</button>
             <button type="button" onclick="cancelEdit()">Cancelar</button>
         </form>
@@ -53,92 +55,90 @@
 
 
     <style>
+
+        /* Centralização do CRUD */
         body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        background-color: #f9f9f9;
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /
+        }
+        input{
+            margin: 20px 0PX; 
+            max-width: 90%;
+        }
 
-    h1, h2 {
-        color: #444;
-    }
+        /* Estilos para o contêiner do CRUD */
+        #createFormContainer, #editFormContainer {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
 
-    #createFormContainer, #editFormContainer {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 500px;
-        margin-bottom: 20px;
-    }
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin: 10px 0; 
+        }
 
-    form label {
-        display: block;
-        margin-bottom: 10px;
-        font-weight: bold;
-    }
+        button:hover {
+            background-color: #45a049;
+        }
 
-    form input[type="text"],
-    form input[type="number"] {
-        width: 100%;
-        padding: 8px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
+        button[type="button"] {
+            background-color: #f44336;
+        }
 
-    button {
-        background-color: #4CAF50;
-        color: #fff;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
+        button[type="button"]:hover {
+            background-color: #e53935;
+        }
 
-    button:hover {
-        background-color: #45a049;
-    }
+        form input[type="text"],
+        form input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        /* Estilos para a tabela de usuários */
+        #usersTable {
+            width: 100vw; /* A tabela ocupa toda a largura da tela */
+            border-collapse: collapse;
+            margin-top: 20px;
+            
+        }
 
-    button[type="button"] {
-        background-color: #f44336;
-    }
+        #usersTable th, #usersTable td {
+            border: 1px solid rgba(255, 255, 255, 0.867);
+            padding: 12px;
+            text-align: left;
+        }
 
-    button[type="button"]:hover {
-        background-color: #e53935;
-    }
+        #usersTable th {
+            background-color: #f2f2f2;
+            color: #45a049;
+        }
 
-    #usersTable {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
+        #usersTable tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
 
-    #usersTable th, #usersTable td {
-        border: 1px solid #ddd;
-        padding: 12px;
-        text-align: left;
-    }
-
-    #usersTable th {
-        background-color: #f2f2f2;
-        color:#45a049;
-    };
-    
-    #usersTable tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-
-    #usersTable tr:hover {
-        background-color: #f1f1f1;
-    }
+        #usersTable tr:hover {
+            background-color: #f1f1f1;
+        }
 
 
 
