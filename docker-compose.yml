@@ -1,25 +1,23 @@
+version: "3.8"
+
 services:
 
   frontend:
-
     build: ./frontend
     ports:
       - "80:80"
     networks:
       - idade-network
     depends_on:
-      - backend # Garante que o Nginx inicie depois que o back esteja disponível, apenas para seguir uma ordem
+      - backend
 
   backend:
-
     build: ./backend
     environment:
       DB_HOST: db
       DB_USER: user
-      DB_NAME: db-idade-app-py
-    secrets:
-      - mysql_root_password
-      - mysql_password
+      DB_NAME: db_idade_app_py
+      DB_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "5000:5000"
     networks:
@@ -28,33 +26,22 @@ services:
       - db
 
   db:
-
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
-      MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
-      MYSQL_DATABASE: db-idade-app-py
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: db_idade_app_py
       MYSQL_USER: user
-    secrets:
-      - mysql_root_password
-      - mysql_password
     ports:
       - "3306:3306"
     volumes:
       - db-data-idade:/var/lib/mysql
     networks:
       - idade-network
-  
+
 volumes:
   db-data-idade:
 
 networks:
   idade-network:
     driver: bridge
-
-secrets:
-  mysql_root_password:
-    file: ./secrets/mysql_root_password.txt
-
-  mysql_password:
-    file: ./secrets/mysql_password.txt
