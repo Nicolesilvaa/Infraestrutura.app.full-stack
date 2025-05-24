@@ -17,10 +17,10 @@ def read_secret(secret_name):
 
 # Configuração da conexão com o banco de dados usando variáveis de ambiente e secrets
 db_config = {
-    'host': os.environ.get('DB_HOST'),           # Nome do host do banco de dados
-    'user': os.environ.get('DB_USER'),         # Usuário do banco de dados
-    'password': read_secret('mysql_password'),         # Senha lida do Docker secret
-    'database': os.environ.get('DB_NAME')   # Nome do banco de dados
+    'host': os.environ.get('DB_HOST'),
+    'user': os.environ.get('DB_USER'),
+    'password': os.environ.get('DB_PASSWORD'),
+    'database': os.environ.get('DB_NAME')
 }
 
 # Função para conectar ao banco de dados
