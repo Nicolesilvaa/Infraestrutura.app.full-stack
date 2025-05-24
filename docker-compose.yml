@@ -10,13 +10,14 @@ services:
     depends_on:
       - backend
 
+
   backend:
     build: ./backend
     environment:
-      DB_HOST: db
-      DB_USER: user
-      DB_NAME: db_idade_app_py
-      DB_PASSWORD: ${MYSQL_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
     ports:
       - "5000:5000"
     networks:
@@ -29,14 +30,16 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_DATABASE: db_idade_app_py
-      MYSQL_USER: user
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
       - "3306:3306"
     volumes:
       - db-data-idade:/var/lib/mysql
     networks:
       - idade-network
+
+
 
 volumes:
   db-data-idade:
