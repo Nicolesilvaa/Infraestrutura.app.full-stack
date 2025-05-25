@@ -10,28 +10,13 @@ services:
     depends_on:
       - backend
 
-
-  backend:
-    build: ./backend
-    environment:
-      DB_HOST: ${DB_HOST}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_NAME: ${DB_NAME}
-    ports:
-      - "5000:5000"
-    networks:
-      - idade-network
-    depends_on:
-      - db
-
   db:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_DATABASE: db_idade_app_py
+      MYSQL_USER: user
     ports:
       - "3306:3306"
     volumes:
@@ -39,7 +24,19 @@ services:
     networks:
       - idade-network
 
-
+  backend:
+    build: ./backend
+    environment:
+      DB_HOST: db
+      DB_USER: user
+      DB_NAME: db_idade_app_py
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "5000:5000"
+    networks:
+      - idade-network
+    depends_on:
+      - db
 
 volumes:
   db-data-idade:

@@ -6,22 +6,14 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-# Função para ler a senha do banco de dados a partir dos Docker secrets
-def read_secret(secret_name):
-    try:
-        with open(f'/run/secrets/{secret_name}', 'r') as file:
-            return file.read().strip()
-    except Exception as e:
-        print(f'Erro ao ler o secret {secret_name}:', e)
-        return ''
-
 # Configuração da conexão com o banco de dados usando variáveis de ambiente e secrets
 db_config = {
     'host': os.environ.get('DB_HOST'),
     'user': os.environ.get('DB_USER'),
-    'password': os.environ.get('DB_PASSWORD'),
+    'password': os.environ.get('DB_PASSWORD'), 
     'database': os.environ.get('DB_NAME')
 }
+
 
 # Função para conectar ao banco de dados
 def get_db_connection():
